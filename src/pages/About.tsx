@@ -143,15 +143,9 @@ const About = () => {
           <p className="text-xs text-muted-foreground mb-6 animate-pulse">
             ↑ Click to switch between my two specializations
           </p>
-
-          <div className="mb-4">
-            <Badge variant="outline" className="text-primary border-primary/30 mb-4">
-              The Hardware Maestro
-            </Badge>
-          </div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            {isMilitaryMode ? 'Military Tech' : 'Biomedical'} Engineer & <span className="text-gradient">Innovator</span>
+            {isMilitaryMode ? 'Military Tech' : 'Biomedical'} Engineer
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -181,18 +175,10 @@ const About = () => {
           </div>
 
           {/* Professional Stats */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">10+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
+          <div className="mt-12 flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">25+</div>
               <div className="text-sm text-muted-foreground">Students Mentored</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">8</div>
-              <div className="text-sm text-muted-foreground">Patents Filed</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">30+</div>
