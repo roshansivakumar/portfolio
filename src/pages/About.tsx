@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Toggle } from "@/components/ui/toggle";
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Shield, Brain, Target } from "lucide-react";
+import { ArrowRight, Zap, Shield, Brain, Target, Activity, Cpu } from "lucide-react";
+import { useState } from "react";
 
 const About = () => {
-  const experiences = [
+  const [isMilitaryMode, setIsMilitaryMode] = useState(true);
+
+  const militaryExperiences = [
     {
       icon: <Shield className="w-6 h-6" />,
       title: "Wearable Military Tech",
@@ -19,18 +23,47 @@ const About = () => {
       tags: ["Defense", "Innovation", "Security"]
     },
     {
-      icon: <Brain className="w-6 h-6" />,
-      title: "AI Diagnostics",
-      description: "Implementing artificial intelligence for advanced diagnostic systems and predictive analysis.",
-      tags: ["AI/ML", "Healthcare", "Diagnostics"]
+      icon: <Cpu className="w-6 h-6" />,
+      title: "Tactical AI Systems",
+      description: "Implementing AI-powered threat detection and analysis systems for military operations.",
+      tags: ["AI/ML", "Defense", "Real-time"]
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Biomedical Engineering",
-      description: "Bridging the gap between engineering and medicine with cutting-edge biomedical solutions.",
-      tags: ["Biomedical", "Research", "Innovation"]
+      title: "Combat Electronics",
+      description: "Designing ruggedized electronic systems for harsh battlefield environments.",
+      tags: ["Electronics", "Durability", "Field-tested"]
     }
   ];
+
+  const biomedicalExperiences = [
+    {
+      icon: <Activity className="w-6 h-6" />,
+      title: "Medical Diagnostics",
+      description: "Developing advanced diagnostic tools for early disease detection and patient monitoring.",
+      tags: ["Diagnostics", "Healthcare", "Innovation"]
+    },
+    {
+      icon: <Brain className="w-6 h-6" />,
+      title: "Neural Interfaces",
+      description: "Creating brain-computer interfaces for medical rehabilitation and assistive technologies.",
+      tags: ["BCI", "Neuroscience", "Rehabilitation"]
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Biomedical Devices",
+      description: "Engineering life-saving medical devices with focus on patient safety and efficacy.",
+      tags: ["Medical Devices", "FDA", "Safety"]
+    },
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: "Precision Medicine",
+      description: "Developing personalized treatment systems using AI and biomarker analysis.",
+      tags: ["AI/ML", "Personalized", "Biomarkers"]
+    }
+  ];
+
+  const experiences = isMilitaryMode ? militaryExperiences : biomedicalExperiences;
 
   const recentProjects = [
     {
@@ -71,13 +104,32 @@ const About = () => {
             </div>
           </div>
           
+          {/* Mode Toggle */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <span className={`text-sm font-medium ${!isMilitaryMode ? 'text-primary' : 'text-muted-foreground'}`}>
+              Biomedical
+            </span>
+            <Toggle
+              pressed={isMilitaryMode}
+              onPressedChange={setIsMilitaryMode}
+              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+            >
+              {isMilitaryMode ? <Shield className="w-4 h-4" /> : <Activity className="w-4 h-4" />}
+            </Toggle>
+            <span className={`text-sm font-medium ${isMilitaryMode ? 'text-primary' : 'text-muted-foreground'}`}>
+              Military Tech
+            </span>
+          </div>
+
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Engineer & <span className="text-gradient">Innovator</span>
+            {isMilitaryMode ? 'Military Tech' : 'Biomedical'} Engineer & <span className="text-gradient">Innovator</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Electrical & Biomedical Engineer specializing in wearable military technology, 
-            de-escalation systems, and AI-powered diagnostics.
+            {isMilitaryMode 
+              ? "Electrical Engineer specializing in wearable military technology, de-escalation systems, and tactical AI solutions."
+              : "Biomedical Engineer focused on medical diagnostics, neural interfaces, and life-saving medical device innovation."
+            }
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
