@@ -139,6 +139,12 @@ const About = () => {
             ↑ Click to switch between my two specializations
           </p>
 
+          <div className="mb-4">
+            <Badge variant="outline" className="text-primary border-primary/30 mb-4">
+              The Hardware Maestro
+            </Badge>
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             {isMilitaryMode ? 'Military Tech' : 'Biomedical'} Engineer & <span className="text-gradient">Innovator</span>
           </h1>
@@ -268,8 +274,57 @@ const About = () => {
         </div>
       </section>
 
-      {/* Recent Work Section */}
+      {/* Testimonials Section */}
       <section className="py-20 px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What People <span className="text-gradient">Say</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "His ability to simplify complex engineering problems is unmatched. A true maestro with hardware.",
+                author: "Colonel Sarah Mitchell",
+                title: "Defense Systems Program Director",
+                category: "Military"
+              },
+              {
+                quote: "The most innovative engineer I've worked with. Always finds solutions where others see obstacles.",
+                author: "Dr. James Chen",
+                title: "Chief Medical Officer",
+                category: "Biomedical"
+              },
+              {
+                quote: "He doesn't just build systems - he crafts experiences. Every detail is thoughtfully engineered.",
+                author: "Maria Rodriguez",
+                title: "Senior Systems Analyst",
+                category: "Technical"
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="p-6 card-gradient border-border">
+                <div className="mb-4">
+                  <p className="text-muted-foreground italic mb-4">"{testimonial.quote}"</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary font-semibold text-sm">
+                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">{testimonial.author}</div>
+                    <div className="text-xs text-muted-foreground">{testimonial.title}</div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Work Section */}
+      <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Recent Projects */}

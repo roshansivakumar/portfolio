@@ -9,6 +9,7 @@ import { Calendar, Search, BookOpen, Heart, ChefHat, Brain } from "lucide-react"
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
 
   const categories = [
     { id: "all", label: "All Posts", icon: <BookOpen size={18} /> },
@@ -102,11 +103,19 @@ const Blog = () => {
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === "all" || post.category === selectedCategory;
+    const matchesTag = !selectedTag || post.tags.includes(selectedTag);
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    return matchesCategory && matchesTag && matchesSearch;
   });
+
+  const getTagsForCategory = (category: string) => {
+    if (category === "all") {
+      return [...new Set(blogPosts.flatMap(post => post.tags))];
+    }
+    return categoryTags[category as keyof typeof categoryTags] || [];
+  };
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -150,13 +159,32 @@ const Blog = () => {
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setSelectedTag("");
+                }}
                 className="flex items-center gap-2"
               >
                 {category.icon}
                 {category.label}
               </Button>
             ))}
+          </div>
+
+          {/* Tags Section */}
+          <div className="mt-6">
+            <div className="flex flex-wrap justify-center gap-2">
+              {getTagsForCategory(selectedCategory).map((tag) => (
+                <Badge
+                  key={tag}
+                  variant={selectedTag === tag ? "default" : "outline"}
+                  className="cursor-pointer hover:bg-primary/10 transition-colors"
+                  onClick={() => setSelectedTag(selectedTag === tag ? "" : tag)}
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -119,7 +119,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <Card key={project.id} className="overflow-hidden card-gradient border-border hover:border-primary/20 smooth-transition">
               {/* Project Image */}

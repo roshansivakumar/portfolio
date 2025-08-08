@@ -7,11 +7,11 @@ import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 const BlogPost = () => {
   const { id } = useParams();
 
-  // This would normally come from an API or database
-  const post = {
-    id: 1,
-    title: "Advanced Signal Processing in Wearable Devices",
-    content: `# Advanced Signal Processing in Wearable Devices
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Advanced Signal Processing in Wearable Devices",
+      content: `# Advanced Signal Processing in Wearable Devices
 
 ## Introduction
 
@@ -26,62 +26,6 @@ Wearable devices in military environments face unique challenges:
 - **Power Constraints**: Limited battery life demands efficient processing
 - **Real-time Requirements**: Critical decisions need instant data processing
 
-## Signal Processing Techniques
-
-### 1. Adaptive Filtering
-
-\`\`\`python
-def adaptive_filter(signal, reference, mu=0.01):
-    """
-    Implements LMS adaptive filtering for noise cancellation
-    """
-    n_samples = len(signal)
-    output = np.zeros(n_samples)
-    weights = np.zeros(filter_length)
-    
-    for i in range(filter_length, n_samples):
-        x = reference[i-filter_length:i]
-        y = np.dot(weights, x)
-        error = signal[i] - y
-        weights += mu * error * x
-        output[i] = error
-    
-    return output
-\`\`\`
-
-### 2. Multi-Resolution Analysis
-
-Using wavelet transforms to decompose signals into different frequency bands allows us to:
-- Remove motion artifacts
-- Preserve critical biomedical information
-- Reduce computational overhead
-
-### 3. Machine Learning Integration
-
-Modern wearable devices leverage AI for:
-- **Pattern Recognition**: Identifying abnormal physiological states
-- **Predictive Analytics**: Anticipating health issues before they become critical
-- **Adaptive Algorithms**: Learning user-specific patterns
-
-## Implementation Considerations
-
-### Hardware Constraints
-
-When designing signal processing algorithms for wearable devices, several hardware limitations must be considered:
-
-1. **Processing Power**: ARM Cortex-M series processors require optimized algorithms
-2. **Memory Limitations**: Efficient data structures and in-place operations
-3. **Power Consumption**: Algorithm complexity directly impacts battery life
-
-### Real-World Testing
-
-Laboratory conditions rarely match field deployment scenarios. Our testing protocol includes:
-
-- **Environmental Chamber Testing**: -40°C to +85°C temperature range
-- **Vibration Testing**: Military standard MIL-STD-810 compliance
-- **EMI Testing**: Electromagnetic interference simulation
-- **Field Trials**: Real-world military exercise participation
-
 ## Results and Impact
 
 The implementation of advanced signal processing in our latest wearable device resulted in:
@@ -91,39 +35,125 @@ The implementation of advanced signal processing in our latest wearable device r
 - **60% improvement** in battery life through algorithmic optimization
 - **Sub-100ms latency** for critical alert generation
 
-## Future Directions
-
-Looking ahead, several emerging technologies show promise:
-
-### Edge AI Processing
-
-Implementing neural networks directly on the device for:
-- Real-time decision making
-- Reduced communication overhead
-- Enhanced privacy and security
-
-### Sensor Fusion
-
-Combining multiple sensor modalities:
-- Accelerometry + Photoplethysmography
-- Temperature + Galvanic Skin Response
-- GPS + Inertial Measurement Units
-
 ## Conclusion
 
-The evolution of signal processing in wearable military technology represents a convergence of traditional engineering principles with cutting-edge AI methodologies. As we push the boundaries of what's possible in harsh environments, the importance of robust, efficient, and intelligent signal processing becomes ever more critical.
+The evolution of signal processing in wearable military technology represents a convergence of traditional engineering principles with cutting-edge AI methodologies.`,
+      category: "technical",
+      date: "2024-01-15",
+      tags: ["Signal Processing", "Hardware", "Electronics"],
+      readTime: "8 min read",
+      author: "The Hardware Maestro"
+    },
+    {
+      id: 2,
+      title: "The Art of Problem-Solving: Lessons from Engineering",
+      content: `# The Art of Problem-Solving: Lessons from Engineering
 
-The future of military wearables lies not just in better sensors or smaller form factors, but in the sophisticated algorithms that transform raw data into actionable intelligence. Every millisecond of processing time, every milliwatt of power consumption, and every percentage point of accuracy can mean the difference between mission success and failure.
+## Introduction
 
----
+What 20 years of engineering has taught me about breaking down complex problems into manageable solutions.
 
-*Want to discuss signal processing techniques or collaborate on wearable technology projects? Feel free to [reach out](/contact).*`,
-    category: "technical",
-    date: "2024-01-15",
-    tags: ["Signal Processing", "Wearables", "Military Tech", "AI"],
-    readTime: "8 min read",
-    author: "Portfolio Owner"
-  };
+## Core Principles
+
+- **Break it down**: Every complex problem is just a collection of smaller, solvable problems
+- **Question assumptions**: The biggest breakthroughs come from challenging what we think we know
+- **Iterate rapidly**: Perfect is the enemy of good enough to test
+
+## Real-World Applications
+
+These principles have served me well in both military tech development and biomedical engineering projects.`,
+      category: "wisdom",
+      date: "2024-01-10",
+      tags: ["Problem Solving", "Engineering Mindset", "Life Lessons"],
+      readTime: "5 min read",
+      author: "The Hardware Maestro"
+    },
+    {
+      id: 3,
+      title: "Mom's Famous Military Mess Hall Chili",
+      content: `# Mom's Famous Military Mess Hall Chili
+
+## The Story
+
+A recipe that fed hundreds of soldiers and became a family tradition. Perfect for cold nights and feeding a crowd.
+
+## Ingredients
+
+- 3 lbs ground beef
+- 2 large onions, diced
+- 6 cloves garlic, minced
+- 2 cans kidney beans
+- 2 cans diced tomatoes
+- 3 tbsp chili powder
+- 2 tbsp cumin
+- Salt and pepper to taste
+
+## Instructions
+
+1. Brown the ground beef in a large pot
+2. Add onions and garlic, cook until softened
+3. Add remaining ingredients and simmer for 2 hours
+4. Serve with cornbread and watch it disappear!
+
+This recipe has been tested by the toughest critics - hungry soldiers!`,
+      category: "recipes",
+      date: "2024-01-08",
+      tags: ["Comfort Food", "Family Recipe", "Military Mess"],
+      readTime: "3 min read",
+      author: "The Hardware Maestro"
+    },
+    {
+      id: 4,
+      title: "The Ethics of AI in Defense Applications",
+      content: `# The Ethics of AI in Defense Applications
+
+## Introduction
+
+Navigating the moral complexities of artificial intelligence in military and defense scenarios.
+
+## Key Considerations
+
+- **Accountability**: Who is responsible when AI makes decisions?
+- **Transparency**: How do we ensure AI decisions can be understood?
+- **Human oversight**: Maintaining human control in critical situations
+
+## Framework for Ethical AI
+
+Developing guidelines that balance innovation with responsibility.`,
+      category: "mind",
+      date: "2024-01-05",
+      tags: ["Ethics", "Future Tech", "Philosophy"],
+      readTime: "12 min read",
+      author: "The Hardware Maestro"
+    },
+    {
+      id: 5,
+      title: "Building Resilient Systems: Hardware Meets Software",
+      content: `# Building Resilient Systems: Hardware Meets Software
+
+## Introduction
+
+How to design systems that can withstand extreme conditions while maintaining functionality.
+
+## Design Principles
+
+- **Redundancy**: Multiple backup systems
+- **Graceful degradation**: Systems that fail safely
+- **Self-healing**: Automatic recovery mechanisms
+
+## Testing Methodologies
+
+Real-world stress testing in harsh environments.`,
+      category: "technical",
+      date: "2023-12-28",
+      tags: ["System Design", "Hardware", "Testing"],
+      readTime: "10 min read",
+      author: "The Hardware Maestro"
+    }
+  ];
+
+  // Find the specific post by ID
+  const post = blogPosts.find(p => p.id === parseInt(id || '1')) || blogPosts[0];
 
   return (
     <div className="min-h-screen py-20 px-6">
