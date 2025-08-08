@@ -5,6 +5,7 @@ import { Toggle } from "@/components/ui/toggle";
 import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, Brain, Target, Activity, Cpu } from "lucide-react";
 import { useState, useEffect } from "react";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const About = () => {
   const [isMilitaryMode, setIsMilitaryMode] = useState(true);
@@ -102,11 +103,15 @@ const About = () => {
       <section className="hero-gradient min-h-[80vh] flex items-center justify-center px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-card border border-primary/20 flex items-center justify-center tech-shadow">
-              <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center">
-                <Zap className="w-12 h-12 text-primary" />
-              </div>
+            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-card border border-primary/20 flex items-center justify-center tech-shadow overflow-hidden">
+              <img 
+                src={profilePhoto} 
+                alt="Dr. Alex Rodriguez - The Hardware Maestro" 
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
+            <h2 className="text-2xl font-bold text-center mb-2">Dr. Alex Rodriguez</h2>
+            <p className="text-center text-muted-foreground font-medium">The Hardware Maestro</p>
           </div>
           
           {/* Mode Toggle - Prominent and Interactive */}
