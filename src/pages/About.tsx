@@ -127,6 +127,77 @@ const About = () => {
         </div>
       </section>
 
+      {/* Professional Experience Timeline */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Professional <span className="text-gradient">Experience</span>
+          </h2>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20"></div>
+            
+            <div className="space-y-12">
+              {[
+                {
+                  period: "2020 - Present",
+                  title: "Senior Biomedical Engineer",
+                  company: "Defense Systems Integration",
+                  description: "Leading development of next-generation wearable military technology with integrated AI diagnostics and threat detection capabilities.",
+                  achievements: ["Reduced detection latency by 40%", "Led team of 12 engineers", "3 patents pending"]
+                },
+                {
+                  period: "2017 - 2020",
+                  title: "Electrical Systems Engineer",
+                  company: "Military Technologies Corp",
+                  description: "Designed and implemented de-escalation systems for both human and autonomous drone threats in field operations.",
+                  achievements: ["99.2% system reliability", "Deployed in 15+ missions", "Cost reduction of 25%"]
+                },
+                {
+                  period: "2014 - 2017",
+                  title: "Biomedical Research Engineer",
+                  company: "Advanced Diagnostics Lab",
+                  description: "Developed AI-powered diagnostic tools for rapid field assessment and medical triage applications.",
+                  achievements: ["Published 8 research papers", "FDA approval for 2 devices", "International recognition"]
+                }
+              ].map((exp, index) => (
+                <div key={index} className="relative flex items-start gap-8">
+                  {/* Timeline dot */}
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-card border border-primary/20 flex items-center justify-center tech-shadow">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-primary"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 pb-8">
+                    <Card className="p-6 card-gradient border-border">
+                      <div className="mb-4">
+                        <div className="text-sm text-primary font-medium mb-2">{exp.period}</div>
+                        <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
+                        <div className="text-muted-foreground font-medium">{exp.company}</div>
+                      </div>
+                      
+                      <p className="text-muted-foreground mb-4">{exp.description}</p>
+                      
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-sm">Key Achievements:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                          {exp.achievements.map((achievement, i) => (
+                            <li key={i}>{achievement}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Recent Work Section */}
       <section className="py-20 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">

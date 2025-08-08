@@ -18,6 +18,13 @@ const Blog = () => {
     { id: "mind", label: "Inside My Mind", icon: <Brain size={18} /> }
   ];
 
+  const categoryTags = {
+    technical: ["Signal Processing", "AI/ML", "Hardware", "System Design", "Electronics", "Firmware", "IoT", "Cybersecurity", "Algorithms", "Testing"],
+    wisdom: ["Life Lessons", "Problem Solving", "Leadership", "Mentorship", "Career", "Engineering Mindset", "Innovation", "Teamwork", "Time Management", "Decision Making"],
+    recipes: ["Comfort Food", "Family Recipe", "Batch Cooking", "Military Mess", "Quick Meals", "Hearty", "Traditional", "Crowd Pleasing", "Seasonal", "Nutritious"],
+    mind: ["Philosophy", "Ethics", "Future Tech", "Society", "Psychology", "Reflection", "Innovation", "Creativity", "Critical Thinking", "Personal Growth"]
+  };
+
   const blogPosts = [
     {
       id: 1,
@@ -25,7 +32,7 @@ const Blog = () => {
       excerpt: "Exploring the challenges and solutions in processing biosignals from military-grade wearable technology.",
       category: "technical",
       date: "2024-01-15",
-      tags: ["Signal Processing", "Wearables", "Military Tech"],
+      tags: ["Signal Processing", "Hardware", "Electronics"],
       readTime: "8 min read"
     },
     {
@@ -34,7 +41,7 @@ const Blog = () => {
       excerpt: "What 20 years of engineering has taught me about breaking down complex problems into manageable solutions.",
       category: "wisdom",
       date: "2024-01-10",
-      tags: ["Problem Solving", "Engineering", "Life Lessons"],
+      tags: ["Problem Solving", "Engineering Mindset", "Life Lessons"],
       readTime: "5 min read"
     },
     {
@@ -43,7 +50,7 @@ const Blog = () => {
       excerpt: "A recipe that fed hundreds of soldiers and became a family tradition. Perfect for cold nights and feeding a crowd.",
       category: "recipes",
       date: "2024-01-08",
-      tags: ["Comfort Food", "Family Recipe", "Batch Cooking"],
+      tags: ["Comfort Food", "Family Recipe", "Military Mess"],
       readTime: "3 min read"
     },
     {
@@ -52,7 +59,7 @@ const Blog = () => {
       excerpt: "Navigating the moral complexities of artificial intelligence in military and defense scenarios.",
       category: "mind",
       date: "2024-01-05",
-      tags: ["AI Ethics", "Defense", "Philosophy"],
+      tags: ["Ethics", "Future Tech", "Philosophy"],
       readTime: "12 min read"
     },
     {
@@ -61,7 +68,7 @@ const Blog = () => {
       excerpt: "How to design systems that can withstand extreme conditions while maintaining functionality.",
       category: "technical",
       date: "2023-12-28",
-      tags: ["System Design", "Resilience", "Hardware"],
+      tags: ["System Design", "Hardware", "Testing"],
       readTime: "10 min read"
     },
     {
@@ -70,8 +77,26 @@ const Blog = () => {
       excerpt: "Simple everyday activities that help develop engineering mindset in children.",
       category: "wisdom",
       date: "2023-12-20",
-      tags: ["Education", "Children", "STEM"],
+      tags: ["Mentorship", "Engineering Mindset", "Leadership"],
       readTime: "6 min read"
+    },
+    {
+      id: 7,
+      title: "Mom's One-Pot Military Mac & Cheese",
+      excerpt: "A hearty, cheesy comfort meal that can feed a platoon and still taste like home.",
+      category: "recipes",
+      date: "2023-12-15",
+      tags: ["Comfort Food", "Quick Meals", "Crowd Pleasing"],
+      readTime: "4 min read"
+    },
+    {
+      id: 8,
+      title: "The Future of Human-AI Collaboration",
+      excerpt: "Exploring how artificial intelligence will reshape the way we work and think in the coming decades.",
+      category: "mind",
+      date: "2023-12-10",
+      tags: ["Future Tech", "Innovation", "Critical Thinking"],
+      readTime: "9 min read"
     }
   ];
 
