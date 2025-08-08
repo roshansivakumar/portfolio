@@ -25,7 +25,7 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-xl font-bold text-gradient">
-            Portfolio
+            The Hardware Maestro
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,6 +41,13 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+            <a 
+              href="/resume-alex-rodriguez.pdf" 
+              download 
+              className="flex items-center gap-1 text-sm bg-primary text-primary-foreground px-3 py-1.5 rounded-md hover:bg-primary/90 smooth-transition"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

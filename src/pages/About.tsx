@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Toggle } from "@/components/ui/toggle";
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Shield, Brain, Target, Activity, Cpu } from "lucide-react";
+import { ArrowRight, Zap, Shield, Brain, Target, Activity, Cpu, Download, Award, FileText, Users, ExternalLink, Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 import { useState, useEffect } from "react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
@@ -168,9 +168,51 @@ const About = () => {
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="border-primary/20">
+              <a href="/resume-alex-rodriguez.pdf" download className="flex items-center gap-2">
+                <Download size={18} />
+                Download Resume
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" className="border-primary/20">
               <Link to="/contact">
                 Let's Collaborate
               </Link>
+            </Button>
+          </div>
+
+          {/* Professional Stats */}
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">10+</div>
+              <div className="text-sm text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">25+</div>
+              <div className="text-sm text-muted-foreground">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">8</div>
+              <div className="text-sm text-muted-foreground">Patents Filed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">12</div>
+              <div className="text-sm text-muted-foreground">Publications</div>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="mt-8 flex justify-center gap-4">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Github size={20} />
+            </Button>
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Linkedin size={20} />
+            </Button>
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Twitter size={20} />
+            </Button>
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Mail size={20} />
             </Button>
           </div>
         </div>
@@ -328,8 +370,148 @@ const About = () => {
         </div>
       </section>
 
-      {/* Recent Work Section */}
+      {/* Certifications & Publications Section */}
+      <section className="py-20 px-6 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Certifications & <span className="text-gradient">Publications</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Certifications */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Award className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold">Certifications</h3>
+              </div>
+              <div className="space-y-4">
+                {[
+                  "DoD 8570 IAT Level II",
+                  "FDA QSR/ISO 13485 Certified",
+                  "Professional Engineer (PE)",
+                  "Project Management Professional (PMP)",
+                  "Certified Biomedical Equipment Technician"
+                ].map((cert, index) => (
+                  <Card key={index} className="p-4 card-gradient border-border">
+                    <p className="text-sm font-medium">{cert}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Patents */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <FileText className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold">Patents</h3>
+              </div>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Wearable Threat Detection System",
+                    number: "US Patent #11,234,567",
+                    status: "Granted"
+                  },
+                  {
+                    title: "Neural Interface Biomarker Analysis",
+                    number: "US Patent #11,345,678", 
+                    status: "Granted"
+                  },
+                  {
+                    title: "Autonomous De-escalation Protocol",
+                    number: "Patent Pending",
+                    status: "Pending"
+                  }
+                ].map((patent, index) => (
+                  <Card key={index} className="p-4 card-gradient border-border">
+                    <p className="text-sm font-medium mb-1">{patent.title}</p>
+                    <p className="text-xs text-muted-foreground mb-1">{patent.number}</p>
+                    <Badge variant={patent.status === "Granted" ? "default" : "secondary"} className="text-xs">
+                      {patent.status}
+                    </Badge>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Publications */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <ExternalLink className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-bold">Publications</h3>
+              </div>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "AI-Enhanced Battlefield Medical Diagnostics",
+                    journal: "IEEE Trans. Biomedical Engineering",
+                    year: "2023"
+                  },
+                  {
+                    title: "Wearable Systems for Combat Environment Monitoring",
+                    journal: "Journal of Military Medicine",
+                    year: "2023"
+                  },
+                  {
+                    title: "Neural Interface Design for Medical Applications",
+                    journal: "Nature Biomedical Engineering",
+                    year: "2022"
+                  }
+                ].map((pub, index) => (
+                  <Card key={index} className="p-4 card-gradient border-border">
+                    <p className="text-sm font-medium mb-1">{pub.title}</p>
+                    <p className="text-xs text-muted-foreground mb-1">{pub.journal}</p>
+                    <p className="text-xs text-primary">{pub.year}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
       <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8">
+            Let's <span className="text-gradient">Connect</span>
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="p-6 card-gradient border-border">
+              <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p className="text-muted-foreground text-sm">alex.rodriguez@example.com</p>
+            </Card>
+            
+            <Card className="p-6 card-gradient border-border">
+              <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Phone</h3>
+              <p className="text-muted-foreground text-sm">(555) 123-4567</p>
+            </Card>
+            
+            <Card className="p-6 card-gradient border-border">
+              <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">Location</h3>
+              <p className="text-muted-foreground text-sm">San Francisco, CA</p>
+            </Card>
+          </div>
+
+          <p className="text-lg text-muted-foreground mb-8">
+            Ready to collaborate on the next breakthrough in military technology or biomedical innovation? 
+            Let's build something extraordinary together.
+          </p>
+          
+          <Button size="lg" className="tech-shadow">
+            <Link to="/contact" className="flex items-center gap-2">
+              Start a Conversation <ArrowRight size={18} />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Recent Work Section */}
+      <section className="py-20 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Recent Projects */}

@@ -1,0 +1,120 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 1200
+>>
+stream
+BT
+/F1 24 Tf
+50 750 Td
+(Dr. Alex Rodriguez - The Hardware Maestro) Tj
+0 -40 Td
+/F1 14 Tf
+(Military Tech Engineer & Biomedical Engineer) Tj
+0 -30 Td
+(Email: alex.rodriguez@example.com | Phone: (555) 123-4567) Tj
+
+0 -50 Td
+/F1 16 Tf
+(PROFESSIONAL SUMMARY) Tj
+0 -25 Td
+/F1 12 Tf
+(Innovative engineer specializing in wearable military technology,) Tj
+0 -15 Td
+(de-escalation systems, and biomedical devices. Expert in AI) Tj
+0 -15 Td
+(integration, threat detection, and life-saving medical technology.) Tj
+
+0 -40 Td
+/F1 16 Tf
+(EXPERIENCE) Tj
+0 -25 Td
+/F1 14 Tf
+(Senior Biomedical Engineer | Defense Systems Integration | 2020-Present) Tj
+0 -15 Td
+/F1 12 Tf
+(- Led development of next-generation wearable military technology) Tj
+0 -15 Td
+(- Reduced detection latency by 40% through AI optimization) Tj
+0 -15 Td
+(- Managed team of 12 engineers, 3 patents pending) Tj
+
+0 -30 Td
+/F1 14 Tf
+(Electrical Systems Engineer | Military Technologies Corp | 2017-2020) Tj
+0 -15 Td
+/F1 12 Tf
+(- Designed de-escalation systems for human and drone threats) Tj
+0 -15 Td
+(- Achieved 99.2% system reliability in field operations) Tj
+0 -15 Td
+(- Deployed systems in 15+ critical missions) Tj
+
+0 -40 Td
+/F1 16 Tf
+(EDUCATION) Tj
+0 -25 Td
+/F1 12 Tf
+(Ph.D. Biomedical Engineering | Stanford University | 2014) Tj
+0 -15 Td
+(M.S. Electrical Engineering | MIT | 2011) Tj
+0 -15 Td
+(B.S. Electrical Engineering | UC Berkeley | 2009) Tj
+
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001526 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1603
+%%EOF
