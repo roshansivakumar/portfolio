@@ -181,22 +181,34 @@ const About = () => {
           </div>
 
           {/* Professional Stats */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">10+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">25+</div>
-              <div className="text-sm text-muted-foreground">Projects Completed</div>
+              <div className="text-sm text-muted-foreground">Students Mentored</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-primary">8</div>
               <div className="text-sm text-muted-foreground">Patents Filed</div>
             </div>
             <div className="text-center">
+              <div className="text-2xl font-bold text-primary">30+</div>
+              <div className="text-sm text-muted-foreground">Supplier Connections</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">15+</div>
+              <div className="text-sm text-muted-foreground">Manufacturer Partners</div>
+            </div>
+            <div className="text-center">
               <div className="text-2xl font-bold text-primary">12</div>
               <div className="text-sm text-muted-foreground">Publications</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary">8</div>
+              <div className="text-sm text-muted-foreground">University Collaborations</div>
             </div>
           </div>
 
@@ -250,11 +262,83 @@ const About = () => {
         </div>
       </section>
 
+      {/* Core Expertise - Intersection Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Core Expertise: <span className="text-gradient">Where Biomedical Meets Military Tech</span>
+          </h2>
+          
+          {/* Transferable Technologies */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              {
+                title: "Secure Communication",
+                description: "Encrypted data transmission for medical privacy and military operations",
+                icon: <Shield className="w-8 h-8" />
+              },
+              {
+                title: "Ultra-Low Power",
+                description: "Battery optimization for wearables and field-deployed devices",
+                icon: <Zap className="w-8 h-8" />
+              },
+              {
+                title: "Ruggedization",
+                description: "Environmental hardening for medical and combat applications",
+                icon: <Target className="w-8 h-8" />
+              },
+              {
+                title: "Edge AI Processing",
+                description: "Real-time data analysis for diagnostics and threat detection",
+                icon: <Brain className="w-8 h-8" />
+              }
+            ].map((expertise, index) => (
+              <Card key={index} className="p-6 card-gradient border-border hover:border-primary/20 smooth-transition">
+                <div className="text-primary mb-4">{expertise.icon}</div>
+                <h3 className="font-bold text-lg mb-2">{expertise.title}</h3>
+                <p className="text-muted-foreground text-sm">{expertise.description}</p>
+              </Card>
+            ))}
+          </div>
+
+          {/* Specialized Technologies */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="p-6 card-gradient border-border">
+              <h3 className="text-xl font-bold mb-4 text-primary">Optical & Audio Technologies</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary">LEDs & Lasers</Badge>
+                  <span className="text-sm text-muted-foreground">Therapeutic and tactical applications</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary">Sound Engineering</Badge>
+                  <span className="text-sm text-muted-foreground">Disorientation and secure communication</span>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6 card-gradient border-border">
+              <h3 className="text-xl font-bold mb-4 text-primary">Neural Technologies & AI</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary">Neurostimulation Electrodes</Badge>
+                  <span className="text-sm text-muted-foreground">Modeling and optimization</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary">AI Diagnostics</Badge>
+                  <span className="text-sm text-muted-foreground">Treatment analysis and prediction</span>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Professional Experience Timeline */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Professional <span className="text-gradient">Experience</span>
+            Professional <span className="text-gradient">Experience</span> - {isMilitaryMode ? 'Military Focus' : 'Biomedical Focus'}
           </h2>
           
           <div className="relative">
@@ -262,7 +346,7 @@ const About = () => {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20"></div>
             
             <div className="space-y-12">
-              {[
+              {(isMilitaryMode ? [
                 {
                   period: "2020 - Present",
                   title: "Senior Defense Engineer",
@@ -272,26 +356,41 @@ const About = () => {
                 },
                 {
                   period: "2018 - 2020",
-                  title: "Biomedical Systems Engineer",
-                  company: "Defense Medical Technologies",
-                  description: "Designed battlefield medical diagnostics and neural interface systems for combat medic applications and soldier health monitoring.",
-                  achievements: ["99.8% diagnostic accuracy in field tests", "Deployed across 3 military branches", "Reduced medic response time by 35%"]
-                },
-                {
-                  period: "2015 - 2018",
                   title: "Military Electronics Engineer",
                   company: "Tactical Systems Integration",
-                  description: "Developed de-escalation technologies and counter-drone systems for military and homeland security applications.",
+                  description: "Developed de-escalation technologies and counter-drone systems using sound disorientation and LED-based communication arrays.",
                   achievements: ["Successfully neutralized 200+ drone threats", "System adopted by 15+ military units", "2 DoD Innovation Awards"]
                 },
                 {
-                  period: "2012 - 2015",
-                  title: "Biomedical Research Engineer",
-                  company: "Advanced Medical Devices Lab",
-                  description: "Created AI-powered medical diagnostic tools and neural monitoring systems for both civilian and military medical applications.",
-                  achievements: ["Published 12 peer-reviewed papers", "FDA approval for 3 medical devices", "International Medical Innovation Award"]
+                  period: "2015 - 2018",
+                  title: "Combat Systems Engineer",
+                  company: "Defense Electronics Corp",
+                  description: "Designed ruggedized communication systems and edge AI processing units for battlefield deployment with ultra-low power requirements.",
+                  achievements: ["99.9% uptime in field conditions", "Reduced power consumption by 60%", "Secure comms for 500+ operations"]
                 }
-              ].map((exp, index) => (
+              ] : [
+                {
+                  period: "2020 - Present",
+                  title: "Senior Biomedical Engineer",
+                  company: "Advanced Medical Technologies",
+                  description: "Leading development of AI-powered diagnostic systems and neural interface technologies for medical applications with secure data transmission.",
+                  achievements: ["FDA approval for 3 medical devices", "99.2% diagnostic accuracy", "15+ clinical partnerships"]
+                },
+                {
+                  period: "2017 - 2020",
+                  title: "Neural Interface Engineer",
+                  company: "NeuroMed Solutions",
+                  description: "Designed neurostimulation electrodes and brain-computer interfaces for therapeutic applications, focusing on electrode modeling and AI treatment analysis.",
+                  achievements: ["12 peer-reviewed publications", "3 breakthrough patents in neural stimulation", "Clinical trials in 8 hospitals"]
+                },
+                {
+                  period: "2014 - 2017",
+                  title: "Biomedical Research Engineer",
+                  company: "Medical Devices Innovation Lab",
+                  description: "Created ultra-low power medical sensors with laser-based diagnostics and AI algorithms for patient monitoring in challenging environments.",
+                  achievements: ["Reduced device power by 70%", "Published 8 research papers", "International Medical Innovation Award"]
+                }
+              ]).map((exp, index) => (
                 <div key={index} className="relative flex items-start gap-8">
                   {/* Timeline dot */}
                   <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-card border border-primary/20 flex items-center justify-center tech-shadow">
