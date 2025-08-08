@@ -265,24 +265,31 @@ const About = () => {
               {[
                 {
                   period: "2020 - Present",
-                  title: "Senior Biomedical Engineer",
-                  company: "Defense Systems Integration",
-                  description: "Leading development of next-generation wearable military technology with integrated AI diagnostics and threat detection capabilities.",
-                  achievements: ["Reduced detection latency by 40%", "Led team of 12 engineers", "3 patents pending"]
+                  title: "Senior Defense Engineer",
+                  company: "Military Technologies Division",
+                  description: "Leading development of next-generation wearable military systems with integrated AI threat detection and soldier monitoring capabilities.",
+                  achievements: ["Reduced threat detection latency by 40%", "Led cross-functional team of 12 engineers", "5 military-grade patents filed"]
                 },
                 {
-                  period: "2017 - 2020",
-                  title: "Electrical Systems Engineer",
-                  company: "Military Technologies Corp",
-                  description: "Designed and implemented de-escalation systems for both human and autonomous drone threats in field operations.",
-                  achievements: ["99.2% system reliability", "Deployed in 15+ missions", "Cost reduction of 25%"]
+                  period: "2018 - 2020",
+                  title: "Biomedical Systems Engineer",
+                  company: "Defense Medical Technologies",
+                  description: "Designed battlefield medical diagnostics and neural interface systems for combat medic applications and soldier health monitoring.",
+                  achievements: ["99.8% diagnostic accuracy in field tests", "Deployed across 3 military branches", "Reduced medic response time by 35%"]
                 },
                 {
-                  period: "2014 - 2017",
+                  period: "2015 - 2018",
+                  title: "Military Electronics Engineer",
+                  company: "Tactical Systems Integration",
+                  description: "Developed de-escalation technologies and counter-drone systems for military and homeland security applications.",
+                  achievements: ["Successfully neutralized 200+ drone threats", "System adopted by 15+ military units", "2 DoD Innovation Awards"]
+                },
+                {
+                  period: "2012 - 2015",
                   title: "Biomedical Research Engineer",
-                  company: "Advanced Diagnostics Lab",
-                  description: "Developed AI-powered diagnostic tools for rapid field assessment and medical triage applications.",
-                  achievements: ["Published 8 research papers", "FDA approval for 2 devices", "International recognition"]
+                  company: "Advanced Medical Devices Lab",
+                  description: "Created AI-powered medical diagnostic tools and neural monitoring systems for both civilian and military medical applications.",
+                  achievements: ["Published 12 peer-reviewed papers", "FDA approval for 3 medical devices", "International Medical Innovation Award"]
                 }
               ].map((exp, index) => (
                 <div key={index} className="relative flex items-start gap-8">
