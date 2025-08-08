@@ -4,10 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import { Toggle } from "@/components/ui/toggle";
 import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Shield, Brain, Target, Activity, Cpu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [isMilitaryMode, setIsMilitaryMode] = useState(true);
+
+  // Update theme attribute on document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isMilitaryMode ? 'military' : 'biomedical');
+  }, [isMilitaryMode]);
 
   const militaryExperiences = [
     {
@@ -104,22 +109,35 @@ const About = () => {
             </div>
           </div>
           
-          {/* Mode Toggle */}
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <span className={`text-sm font-medium ${!isMilitaryMode ? 'text-primary' : 'text-muted-foreground'}`}>
-              Biomedical
-            </span>
-            <Toggle
-              pressed={isMilitaryMode}
-              onPressedChange={setIsMilitaryMode}
-              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-            >
-              {isMilitaryMode ? <Shield className="w-4 h-4" /> : <Activity className="w-4 h-4" />}
-            </Toggle>
-            <span className={`text-sm font-medium ${isMilitaryMode ? 'text-primary' : 'text-muted-foreground'}`}>
-              Military Tech
-            </span>
+          {/* Mode Toggle - Prominent and Interactive */}
+          <div className="mode-toggle mx-auto mb-8 flex items-center justify-center w-fit">
+            <div className="flex items-center gap-0">
+              <button
+                onClick={() => setIsMilitaryMode(false)}
+                className={`mode-indicator flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  !isMilitaryMode ? 'active' : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Activity className="w-4 h-4" />
+                Biomedical Engineer
+              </button>
+              <div className="w-px h-8 bg-border"></div>
+              <button
+                onClick={() => setIsMilitaryMode(true)}
+                className={`mode-indicator flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  isMilitaryMode ? 'active' : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Shield className="w-4 h-4" />
+                Military Tech Engineer
+              </button>
+            </div>
           </div>
+
+          {/* Visual cue that this is interactive */}
+          <p className="text-xs text-muted-foreground mb-6 animate-pulse">
+            ↑ Click to switch between my two specializations
+          </p>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             {isMilitaryMode ? 'Military Tech' : 'Biomedical'} Engineer & <span className="text-gradient">Innovator</span>

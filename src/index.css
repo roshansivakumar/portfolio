@@ -57,20 +57,39 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Biomedical Theme */
+  [data-theme="biomedical"] {
+    /* Primary - Medical Blue */
+    --primary: 210 100% 56%;
+    --primary-foreground: 220 15% 5%;
+    --primary-glow: 210 100% 70%;
+
+    /* Secondary - Health Green */
+    --secondary: 142 69% 58%;
+    --secondary-foreground: 220 15% 5%;
+
+    /* Accent - Medical Red */
+    --accent: 0 84% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Updated gradients for biomedical */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 5%) 0%, hsl(220 13% 8%) 50%, hsl(210 100% 56% / 0.1) 100%);
+    --gradient-tech: linear-gradient(90deg, hsl(210 100% 56%) 0%, hsl(142 69% 58%) 100%);
+    
+    /* Updated shadows */
+    --shadow-tech: 0 8px 32px hsl(210 100% 56% / 0.15);
+    --shadow-glow: 0 0 40px hsl(210 100% 56% / 0.3);
+    
+    --ring: 210 100% 56%;
   }
 
   .dark {
@@ -157,5 +176,35 @@ All colors MUST be HSL.
   /* Smooth animations */
   .smooth-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mode Toggle Component */
+  .mode-toggle {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    border: 2px solid hsl(var(--border));
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-tech);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .mode-toggle:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  .mode-indicator {
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .mode-indicator.active {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.4);
   }
 }
